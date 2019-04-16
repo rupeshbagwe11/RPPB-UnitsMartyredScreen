@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<Instance Name="UMSButtonInstance">
+		<Container ID="UMScreens" Anchor="L,C" Size="30,30" Offset="2,0">
+			<GridButton ID="ViewUMScreens" Size="29,29" Offset="1,-2" Texture="Controls_ButtonControl_Reports" SliceCorner="12,12" SliceSize="1,1" SliceTextureSize="29,29" StateOffsetIncrement="0,29" ToolTip="RPPB Units Martyred Screen">
+				<Image Anchor="C,C" Size="16,16" IconSize="16"  Icon="ICON_CIVILOPEDIA_UNITPROMOTIONS" />
+			</GridButton>
+		</Container>
+	</Instance>
+
+	<Instance Name="ECOButtonInstance">
+		<Container ID="ECOScreens" Anchor="L,C" Size="30,30" Offset="2,0">
+			<GridButton ID="ViewECOScreens" Size="29,29" Offset="1,-2" Texture="Controls_ButtonControl_Reports" SliceCorner="12,12" SliceSize="1,1" SliceTextureSize="29,29" StateOffsetIncrement="0,29" ToolTip="RPPB Economics Coming Soon">
+				<Image Anchor="C,C" Size="16,16" IconSize="16"    Icon="ICON_CIVILOPEDIA_GOVERNMENTS" />
+			</GridButton>
+		</Container>
+	</Instance>
+
+	<Container Style="FullScreenVignetteConsumer" />
+	<Box ID="Main" Anchor="C,C" Size="1144,759" Color="11,27,40,255">
+		<Grid Anchor="C,C" Size="parent+9,parent+9" Style="WindowFrameTopOnly" />
+		<Button ID="CloseButton" Anchor="R,T" Offset="-3,-1" Size="44,44" Texture="Controls_CloseLarge" />
+		<Image Anchor="C,T" Size="parent,44" Color="61,112,154,255" Texture="Controls_Gradient_HalfRadial" />
+		<Label ID="BOXTITLE" Anchor="C,T" Offset="0,16" Style="FontFlair20" String="${BOXTITLE}" FontStyle="Glow" Color="133,205,235,255"  SmallCaps="28" SmallCapsType="EveryWord" />
+		<GridButton ID="CollapseAll" Offset="48,13" SizeToText="80,12" Style="RoundedButton" String="LOC_HUD_REPORTS_COLLAPSE_ALL" Hidden="0" />
+		<Grid Anchor="C,T" Offset="0,44" Size="parent-6,8" Style="Divider3Grid" />
+		<!-- ==================================================================	-->
+		<!--	Tab Header																												-->
+		<!-- ==================================================================	-->
+		<Container ID="TabArea" Anchor="C,T" Offset="0,44" Size="parent,42">
+			<Image Anchor="C,T" Offset="0,4" Size="parent-8,22" Color="0,0,0,255" Texture="Controls_GradientSmall" />
+			<Container ID="TabContainer" Offset="0,0" Size="parent,34" />
+			<Grid Anchor="C,B" Offset="0,0" Size="parent-6,8" Style="Divider3Grid" />
+		</Container>
+		<Container Anchor="C,T" Offset="0,44" Size="parent,36">
+			<SlideAnim ID="TabAnim" Begin="0,0" End="0,0" Cycle="Once" Speed="3.5" Function="OutQuint" Size="67,68">
+				<Image ID="TabArrow" Texture="Controls_TabSelectArrow" Size="42,11" />
+			</SlideAnim>
+		</Container>
+		<ScrollPanel ID="Scroll" Offset="4,84" Size="parent-8,parent-188" Vertical="1" AutoScrollBar="1">
+			<Stack ID="Stack" Anchor="L,T" Offset="0,1" StackPadding="4" />
+			<ScrollBar Anchor="R,C" Offset="2,0" Size="11,parent" AnchorSide="I,I" Style="ScrollVerticalBarAlt" />
+		</ScrollPanel>
+		<Image Anchor="C,T" Offset="0,83" Size="parent-8,22" Color="0,0,0,255" Texture="Controls_GradientSmall" />
+	</Box>
+	<!-- ==================================================================	-->
+	<!--	Instances																													-->
+	<!-- ==================================================================	-->
+	<Instance Name="TabInstance">
+		<GridButton ID="Button" Size="50,34" Style="TabButton" FontSize="14" TextOffset="0,2">
+			<AlphaAnim ID="Selection" Offset="-2,0" Size="parent+3,parent" Speed="4" AlphaBegin="0" AlphaEnd="1" Cycle="Once" Function="Root" Hidden="1">
+				<GridButton Size="parent,parent" Style="TabButtonSelected" ConsumeMouseButton="0" ConsumeMouseOver="1" />
+			</AlphaAnim>
+		</GridButton>
+	</Instance>
+	<!-- Non-Collapsable Rows -->
+	<Instance Name="SimpleInstance">
+		<Stack ID="Top" StackGrowth="Down" />
+	</Instance>
+	<!-- Collapsable Row(s) area -->
+	<Instance Name="GroupInstance">
+		<Container ID="Top" Size="1123,10" AutoSize="V">
+			<GridButton ID="RowHeaderButton" Offset="0,0" Size="parent,30" Style="RowButton" >
+				<Label ID="RowHeaderLabel1" Anchor="C,C" Offset="25,0" Style="RowButton" Color="Faith" String="$RowHeaderLabel1$"  />
+				<Label ID="RowHeaderLabel2" Anchor="R,C" Offset="50,0" Style="RowButton" Color="Gold" String="$RowHeaderLabel2$"  />
+			</GridButton>
+			<Image ID="RowExpandCheck" Anchor="R,T" Offset="5,5" Size="22,22" Texture="Controls_ExpandButton" />
+			<ScrollPanel ID="CollapseScroll" Offset="0,31" Size="parent,20" StackGrowth="Bottom" FullClip="1">
+				<SlideAnim ID="CollapseAnim" Start="0,0" EndOffset="0,0" Speed="4" Cycle="Once" Stopped="1">
+					<Stack ID="ContentStack" Offset="0,0" StackGrowth="Bottom" />
+				</SlideAnim>
+			</ScrollPanel>
+		</Container>
+	</Instance>
+	<!-- ================================================================= -->
+	<Instance Name="CenterHeaderInstance">
+		<Container ID="Top" Size="1123,10" AutoSize="V">
+			<GridButton ID="CenterHeaderInstance" Offset="0,0" Size="parent,30" Style="RowButton">
+				<Label ID="CenterHeaderLabel" Anchor="C,C" Color="Gold" Style="RowButton" String="$CenterHeaderLabel$" />
+			</GridButton>
+		</Container>
+	</Instance>
+	<Instance Name="SeparatorInstance">
+		<Container ID="Top" Size="1123,10" AutoSize="V">
+			<GridButton ID="SeparatorButton" Offset="0,0" Size="parent,20" Style="RowButton">
+				<Label ID="SeparatorLabel" Anchor="C,C" Color="Faith" Style="RowButton" String="" />
+			</GridButton>
+		</Container>
+	</Instance>
+	<Instance Name="ComparableRowInstance">
+		<Container ID="Top" Size="1123,10" AutoSize="V">
+			<Stack StackGrowth="Right">
+				<GridButton ID="ComparableRowButton1" Offset="0,0" Size="560,30" Style="RowButton">
+					<Label ID="ComparableRowButton1Label1" Anchor="L,C" Offset="25,0" Style="RowButton" Color="Faith" String="$ComparableRowButton1Label1$" />
+					<Label ID="ComparableRowButton1Label2" Anchor="R,C" Offset="25,0" Style="RowButton" Color="Faith" String="$ComparableRowButton1Label2$" />
+				</GridButton>
+				<GridButton ID="ComparableRowButton2" Offset="0,0" Size="560,30" Style="RowButton">
+					<Label ID="ComparableRowButton2Label1" Anchor="L,C" Offset="25,0" Style="RowButton" Color="Faith" String="$ComparableRowButton2Label1$" />
+					<Label ID="ComparableRowButton2Label2" Anchor="R,C" Offset="25,0" Style="RowButton" Color="Faith" String="$ComparableRowButton2Label2$" />
+				</GridButton>
+			</Stack>
+		</Container>
+	</Instance>
+
+
+	<Instance Name="TripleRowInstance">
+		<Container ID="Top" Size="1123,10" AutoSize="V">
+			<Stack StackGrowth="Right">
+				<GridButton ID="TripleRowInstanceButton1" Offset="0,0" Size="400,30" Style="RowButton">
+					<Label ID="TripleRowInstanceLabel1" Anchor="C,C" Offset="2,0" Style="RowButton" Color="Faith" String="$ComparableRowButton1Label1$" />
+				</GridButton>
+				<GridButton ID="TripleRowInstanceButton2" Offset="0,0" Size="360,30" Style="RowButton">
+					<Label ID="TripleRowInstanceLabel2" Anchor="C,C" Offset="2,0" Style="RowButton" Color="Faith" String="$ComparableRowButton2Label1$" />
+				</GridButton>
+				<GridButton ID="TripleRowInstanceButton3" Offset="0,0" Size="360,30" Style="RowButton">
+					<Label ID="TripleRowInstanceLabel3" Anchor="C,C" Offset="2,0" Style="RowButton" Color="Faith" String="$ComparableRowButton3Label1$" />
+				</GridButton>
+			</Stack>
+		</Container>
+	</Instance>
+
+
+	<Instance Name="SingleRowInstance">
+		<Container ID="Top" Size="1123,30" AutoSize="V">
+			<Stack StackGrowth="Right">
+				<GridButton ID="SingleRowInstanceButton1" Offset="0,0" Size="700,30" Style="RowButton">
+					<Label ID="SingleRowInstanceLabel1" Anchor="C,C" Offset="50,0" Style="RowButton" Color="Faith" String="$SingleRowInstanceLabel1$" />
+				</GridButton>
+				<GridButton ID="SingleRowInstanceButton2" Offset="0,0" Size="420,30" Style="RowButton">
+					<Label ID="SingleRowInstanceLabel2" Anchor="L,C" Offset="50,0" Style="RowButton" Color="Faith" String="$SingleRowInstanceLabel2$" />
+				</GridButton>
+			</Stack>
+		</Container>
+	</Instance>
+
+
+
+	<Instance Name="UnitsMartyredTableHeaderInstance">
+		<Container ID="Top" Offset="8,0" Size="1123,32">
+			<Image Offset="4,0" Size="parent-20,parent" Texture="Controls_GradientSmall" FlipY="1" Color="39,89,137,125" />
+			<Stack StackGrowth="Right">
+				<Box Size="2,parent" Color="46,70,95,128" />
+				<Container Offset="1,0" Size="50,parent">
+					<GridButton ID="aButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label ID="ICON" Style="ReportHeaderSmallText" Color="Culture" String="Icon" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="150,parent">
+					<GridButton ID="bButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label ID="CIVILIZATION" Style="ReportHeaderSmallText" Color="Faith" String="Civilization" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="75,parent">
+					<GridButton ID="cButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid">
+						<Image ID="CU" Anchor="C,C" Size="30,30" IconSize="16" Color="Faith" Icon="ICON_DIPLOACTION_GIFT_UNIT"/>
+						<!--  <Label ID="CU" Style="ReportHeaderSmallText" Color="Production" String="CU" />  -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="75,parent">
+					<GridButton ID="dButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid">
+						<Image ID="WFA" Anchor="C,C" Size="30,30" IconSize="16" Color="Faith" Icon="ICON_NOTIFICATION_DECLARE_WAR" />
+						<!-- <Label ID="WFA" Style="ReportHeaderSmallText" Color="Gold" String="WFA" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<GridButton ID="eButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="AK" Anchor="C,C" Size="30,30" IconSize="16" Color="76,188,0,255" Icon="ICON_UNIT_TANK" />
+						<!-- <Label ID="AK" Style="ReportHeaderSmallText" Color="Production" String="AK" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<GridButton ID="fButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="NK" Anchor="C,C" Size="30,30" IconSize="16" Color="76,188,0,255" Icon="ICON_UNIT_FRIGATE" />
+						<!--   <Label ID="NK" Style="ReportHeaderSmallText" Color="Science" String="NK" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="60,parent">
+					<GridButton ID="gButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="AFK" Anchor="C,C" Size="30,30" IconSize="16" Color="76,188,0,255" Icon="ICON_UNIT_BOMBER" />
+						<!--  <Label ID="AFK" Style="ReportHeaderSmallText" Color="Culture" String="AFK" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="60,parent">
+					<GridButton ID="hButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="RK" Anchor="C,C" Size="30,30" IconSize="16" Color="76,188,0,255" Icon="ICON_UNIT_INQUISITOR" />
+						<!-- <Label ID="RK" Style="ReportHeaderSmallText" Color="Faith" String="RK" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<GridButton ID="iButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="SKC" Anchor="C,C" Size="30,30" IconSize="16" Color="76,188,0,255" Icon="ICON_UNIT_SPY" />
+						<!-- <Label ID="SKC" Style="ReportHeaderSmallText" Color="Tourism" String="SKC" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<GridButton ID="jButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="OKC" Anchor="C,C" Size="30,30" IconSize="16" Color="76,188,0,255" Icon="ICON_NOTIFICATION_PLAYER_MET" />
+						<!-- <Label  ID="OKC" Style="ReportHeaderSmallText" Color="Food" String="OKC" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<GridButton ID="kButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="TKC" Anchor="C,C" Size="30,30"  IconSize="16" Color="Gold" Icon="ICON_NOTIFICATION_PLAYER_CONNECTING" />
+						<!--  <Label  ID="TKC" Style="ReportHeaderSmallText" Color="Gold" String="TKC" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<GridButton ID="lButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="AM" Anchor="C,C" Size="30,30" IconSize="16" Color="204,1,0,255" Icon="ICON_UNIT_TANK" />
+						<!-- <Label  ID="AM" Style="ReportHeaderSmallText" Color="Production" String="AM" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<GridButton ID="mButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="NM" Anchor="C,C" Size="30,30" IconSize="16" Color="204,1,0,255" Icon="ICON_UNIT_FRIGATE" />
+						<!-- <Label ID="NM" Style="ReportHeaderSmallText" Color="Science" String="NM" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="60,parent">
+					<GridButton ID="nButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="AFM" Anchor="C,C" Size="30,30" IconSize="16" Color="204,1,0,255" Icon="ICON_UNIT_BOMBER" />
+						<!-- <Label ID="AFM" Style="ReportHeaderSmallText" Color="Culture" String="AFM" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="60,parent">
+					<GridButton ID="oButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="RM" Anchor="C,C" Size="30,30" IconSize="16" Color="204,1,0,255" Icon="ICON_UNIT_INQUISITOR" />
+						<!--  <Label ID="RM" Style="ReportHeaderSmallText" Color="Faith" String="RM" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<GridButton ID="pButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="SMC" Anchor="C,C" Size="30,30" IconSize="16" Color="204,1,0,255" Icon="ICON_UNIT_SPY" />
+						<!--   <Label ID="SMC" Style="ReportHeaderSmallText" Color="Tourism" String="SMC" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<GridButton ID="qButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="OMC" Anchor="C,C" Size="30,30" IconSize="16" Color="204,1,0,255" Icon="ICON_NOTIFICATION_PLAYER_MET" />
+						<!--  <Label ID="OMC" Style="ReportHeaderSmallText" Color="Food" String="OMC" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<GridButton ID="rButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image ID="TMC" Anchor="C,C" Size="30,30" IconSize="16" Color="Gold" Icon="ICON_NOTIFICATION_PLAYER_CONNECTING" />
+						<!--  <Label ID="TMC" Style="ReportHeaderSmallText" Color="Gold" String="TMC" /> -->
+					</GridButton>
+				</Container>
+				<Box Offset="1,0" Size="2,parent" Color="46,70,95,128" />
+			</Stack>
+		</Container>
+	</Instance>
+	<Instance Name="UnitsMartyredTableEntryInstance">
+		<Container ID="Top" Offset="8,0" Size="1123,32">
+			<Image Offset="4,0" Size="parent-24,parent" Texture="Controls_GradientSmall" FlipY="1" Color="39,89,137,125" />
+			<Stack StackGrowth="Right">
+				<Box Size="2,parent" Color="46,70,95,128" />
+				<Container Offset="1,0" Size="50,parent">
+					<Image ID="CivIcon" Anchor="C,C" Size="30,30" />
+				</Container>
+				<Container Offset="1,0" Size="150,parent">
+					<Label ID="CivName" Style="ReportValueText" Color="Faith" String="$CivName$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="75,parent">
+					<Label ID="CU" Style="ReportValueText" Color="Production" String="$CU$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="75,parent">
+					<Label ID="TWA" Style="ReportValueText" Color="Gold" String="$TWA$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<Label ID="AKO" Style="ReportValueText" Color="Production" String="$AKO$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<Label ID="NKO" Style="ReportValueText" Color="Science" String="$NKO$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="60,parent">
+					<Label ID="AFKO" Style="ReportValueText" Color="Culture" String="$AFKO$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="60,parent">
+					<Label ID="RKO" Style="ReportValueText" Color="Faith" String="$RKO$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<Label ID="SKO" Style="ReportValueText" Color="Tourism" String="$SKO$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<Label ID="OKO" Style="ReportValueText" Color="Food" String="$OKO$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<Label ID="TKO" Style="ReportValueText" Color="Gold" String="$TKO$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<Label ID="AMB" Style="ReportValueText" Color="Production" String="$AMB$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<Label ID="NMB" Style="ReportValueText" Color="Science" String="$NMB$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="60,parent">
+					<Label ID="AFMB" Style="ReportValueText" Color="Culture" String="$AFMB$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="60,parent">
+					<Label ID="RMB" Style="ReportValueText" Color="Faith" String="$RMB$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<Label ID="SMB" Style="ReportValueText" Color="Tourism" String="$SMB$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<Label ID="OMB" Style="ReportValueText" Color="Food" String="$OMB$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="50,parent">
+					<Label ID="TMB" Style="ReportValueText" Color="Gold" String="$TMB$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Box Offset="1,0" Size="2,parent" Color="46,70,95,128" />
+			</Stack>
+		</Container>
+	</Instance>
+	<Instance Name="UnitsMartyredLogsHeaderInstance">
+		<Container ID="Top" Offset="8,0" Size="1123,30">
+			<Image Offset="4,0" Size="parent-20,parent" Texture="Controls_GradientSmall" FlipY="1" Color="39,89,137,125" />
+			<Stack StackGrowth="Right">
+				<Box Size="2,parent" Color="46,70,95,128" />
+				<Container Offset="1,0" Size="100,parent">
+					<GridButton ID="aButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="RPPB_UMS_TURN" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="100,parent">
+					<GridButton ID="hButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="RPPB_UMS_ICON" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="200,parent">
+					<GridButton ID="bButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="RPPB_UMS_NAME" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="100,parent">
+					<GridButton ID="cButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="RPPB_UMS_TYPE" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="100,parent">
+					<GridButton ID="dButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="RPPB_UMS_LEVEL" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="200,parent">
+					<GridButton ID="eButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="RPPB_UMS_OWNERCIV" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="200,parent">
+					<GridButton ID="fButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="RPPB_UMS_KILLERCIV" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="100,parent">
+					<GridButton ID="gButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="RPPB_UMS_CONDITION" />
+					</GridButton>
+				</Container>
+				<Box Offset="1,0" Size="2,parent" Color="46,70,95,128" />
+			</Stack>
+		</Container>
+	</Instance>
+	<Instance Name="UnitsMartyredLogsEntryInstance">
+		<Container ID="Top" Offset="8,0" Size="1123,30">
+			<Image Offset="4,0" Size="parent-20,parent" Texture="Controls_GradientSmall" FlipY="1" Color="39,89,137,125" />
+			<Stack StackGrowth="Right">
+				<Box Size="2,parent" Color="46,70,95,128" />
+				<Container Offset="1,0" Size="100,parent">
+					<Label ID="Turn" Style="ReportValueText" Color="Faith" String="$Turn$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="100,parent">
+					<Image ID="UnitIcon" Anchor="C,C" Size="22,22" />
+				</Container>
+				<Container Offset="1,0" Size="200,parent">
+					<Label ID="Name" Style="ReportValueText" Color="Faith" String="$Name$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="100,parent">
+					<Label ID="Type" Style="ReportValueText" Color="Faith" String="$Type$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="100,parent">
+					<Label ID="Level" Style="ReportValueText" Color="Faith" String="$Level$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="200,parent">
+					<Label ID="OfCiv" Style="ReportValueText" Color="Faith" String="$OfCiv$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="200,parent">
+					<Label ID="ByCiv" Style="ReportValueText" Color="Faith" String="$ByCiv$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="100,parent">
+					<Label ID="Cond" Style="ReportValueText" Color="Faith" String="$Cond$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Box Offset="1,0" Size="2,parent" Color="46,70,95,128" />
+			</Stack>
+		</Container>
+	</Instance>
+	<Instance Name="GlobalWarTableHeaderInstance">
+		<Container ID="Top" Offset="8,0" Size="1123,32">
+			<Image Offset="4,0" Size="parent-20,parent" Texture="Controls_GradientSmall" FlipY="1" Color="39,89,137,125" />
+			<Stack StackGrowth="Right">
+				<Box Size="2,parent" Color="46,70,95,128" />
+				<Container Offset="1,0" Size="50,parent">
+					<GridButton ID="aButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="Icon" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="175,parent">
+					<GridButton ID="bButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="Civilization" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="85,parent">
+					<GridButton ID="cButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid">
+						<Image  Anchor="C,C" Size="30,30" IconSize="16" Color="76,188,0,255" Icon="ICON_DIPLOACTION_GIFT_UNIT" />
+						<!--  <Label Style="ReportHeaderSmallText" Color="Faith" String="TUKB" />   -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="90,parent">
+					<GridButton ID="dButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid">
+						<Image Anchor="C,C" Size="30,30" IconSize="16"  Color="Gold" Icon="ICON_NOTIFICATION_PLAYER_RESURRECTED" />
+						<!-- <Label Style="ReportHeaderSmallText" Color="Faith" String="MUKO" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="85,parent">
+					<GridButton ID="eButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid">
+						<Image Anchor="C,C" Size="30,30" IconSize="16" Color="204,1,0,255" Icon="ICON_NOTIFICATION_UNIT_LOST" />
+						<!-- <Label Style="ReportHeaderSmallText" Color="Faith" String="TUMO" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="90,parent">
+					<GridButton ID="fButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid">
+						<Image Anchor="C,C" Size="30,30" IconSize="16"  Color="Gold"  Icon="ICON_NOTIFICATION_PLAYER_ELIMINATED" />
+						<!-- <Label Style="ReportHeaderSmallText" Color="Faith" String="MUMB" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="85,parent">
+					<GridButton ID="gButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid">
+						<Image Anchor="C,C" Size="30,30" IconSize="16"  Color="204,1,0,255" Icon="ICON_DIPLOACTION_DECLARE_FORMAL_WAR" />
+						<!-- <Label Style="ReportHeaderSmallText" Color="Faith" String="TWF" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="85,parent">
+					<GridButton ID="hButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid">
+						<Image Anchor="C,C" Size="30,30" IconSize="16" Color="Gold" Icon="ICON_NOTIFICATION_PLAYER_CONNECTING" />
+						<!-- <Label Style="ReportHeaderSmallText" Color="Faith" String="MWFA" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="90,parent">
+					<GridButton ID="iButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image Anchor="C,C" Size="30,30" IconSize="16" Color="Faith" Icon="ICON_DIPLOACTION_DEFENSIVE_PACT" />
+						<!-- <Label Style="ReportHeaderSmallText" Color="Faith" String="MS" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="90,parent">
+					<GridButton ID="jButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<!--  <Image Anchor="C,C" Size="30,30" IconSize="16"  Icon="ICON_STRENGTH" />  -->
+						<Label Style="ReportHeaderSmallText" Color="Gold" String="[ICON_Gold]" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="80,parent">
+					<GridButton ID="kButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image Anchor="C,C" Size="30,30" IconSize="16" Color="Faith" Icon="ICON_NOTIFICATION_DECLARE_WAR" />
+						<!-- <Label Style="ReportHeaderSmallText" Color="Faith" String="AW" /> -->
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="80,parent">
+					<GridButton ID="lButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Image Anchor="C,C" Size="30,30" IconSize="16"  Color="204,1,0,255" Icon="ICON_NOTIFICATION_CAPITAL_LOST" />
+						<!-- <Label Style="ReportHeaderSmallText" Color="Faith" String="DEAD" /> -->
+					</GridButton>
+				</Container>
+				<Box Offset="1,0" Size="2,parent" Color="46,70,95,128" />
+			</Stack>
+		</Container>
+	</Instance>
+	<Instance Name="GlobalWarTableEntryInstance">
+		<Container ID="Top" Offset="8,0" Size="1123,32">
+			<Image Offset="4,0" Size="parent-24,parent" Texture="Controls_GradientSmall" FlipY="1" Color="39,89,137,125" />
+			<Stack StackGrowth="Right">
+				<Box Size="2,parent" Color="46,70,95,128" />
+				<Container Offset="1,0" Size="50,parent">
+					<Image ID="CivIcon" Anchor="C,C" Size="30,30" />
+				</Container>
+				<Container Offset="1,0" Size="175,parent">
+					<Label ID="CivName" Style="ReportValueText" Color="Faith" String="$CivName$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="85,parent">
+					<Label ID="TUK" Style="ReportValueText" Color="Faith" String="$TUK$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="90,parent">
+					<Image ID="MKCiv" Anchor="C,C" Size="30,30" />
+				</Container>
+				<Container Offset="1,0" Size="85,parent">
+					<Label ID="TUM" Style="ReportValueText" Color="Faith" String="$TUM$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="90,parent">
+					<Image ID="MMCiv" Anchor="C,C" Size="30,30" />
+				</Container>
+				<Container Offset="1,0" Size="85,parent">
+					<Label ID="TWF" Style="ReportValueText" Color="Faith" String="$TWF$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="85,parent">
+					<Image ID="MWACiv" Anchor="C,C" Size="30,30" />
+				</Container>
+				<Container Offset="1,0" Size="90,parent">
+					<Label ID="MST" Style="ReportValueText" Color="Gold" String="$MST$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="90,parent">
+					<Label ID="MB" Style="ReportValueText" Color="Gold" String="$MB$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="80,parent">
+					<Image ID="AWICON" Anchor="C,C" Size="30,30" IconSize="16" Color="Faith" Icon="ICON_NOTIFICATION_DECLARE_WAR" />
+					<!-- <Label ID="AW" Style="ReportValueText" Color="Production" String="$AW$" Align="Center" Anchor="C,C" Offset="0,0" /> -->
+				</Container>
+				<Container Offset="1,0" Size="80,parent">
+					<Image ID="IDEICON" Anchor="C,C" Size="30,30" IconSize="16"  Color="204,1,0,255" Icon="ICON_NOTIFICATION_CAPITAL_LOST" />
+					<!-- <Label ID="IDE" Style="ReportValueText" Color="Production" String="$IDE$" Align="Center" Anchor="C,C" Offset="0,0" /> -->
+				</Container>
+				<Box Offset="1,0" Size="2,parent" Color="46,70,95,128" />
+			</Stack>
+		</Container>
+	</Instance>
+	<Instance Name="GlobalWarsLogsHeaderInstance">
+		<Container ID="Top" Offset="8,0" Size="1123,30">
+			<Image Offset="4,0" Size="parent-20,parent" Texture="Controls_GradientSmall" FlipY="1" Color="39,89,137,125" />
+			<Stack StackGrowth="Right">
+				<Box Size="2,parent" Color="46,70,95,128" />
+				<Container Offset="1,0" Size="400,parent">
+					<GridButton ID="aButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="Name" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="80,parent">
+					<GridButton ID="bButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="Start Turn" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="80,parent">
+					<GridButton ID="cButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="End Turn" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="125,parent">
+					<GridButton ID="dButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="Civilization 1" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="105,parent">
+					<GridButton ID="eButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="Units Lost Civ1" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="125,parent">
+					<GridButton ID="fButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="Civilization2" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="105,parent">
+					<GridButton ID="gButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="Units Lost Civ2" />
+					</GridButton>
+				</Container>
+				<Container Offset="1,0" Size="80,parent">
+					<GridButton ID="hButton" Size="parent,parent" Style="ButtonLightWeightSquareGrid" Anchor="C,C">
+						<Label Style="ReportHeaderSmallText" Color="Faith" String="Duration" />
+					</GridButton>
+				</Container>
+				<Box Offset="1,0" Size="2,parent" Color="46,70,95,128" />
+			</Stack>
+		</Container>
+	</Instance>
+	<Instance Name="GlobalWarsEntryInstance">
+		<Container ID="Top" Offset="8,0" Size="1123,30">
+			<Image Offset="4,0" Size="parent-20,parent" Texture="Controls_GradientSmall" FlipY="1" Color="39,89,137,125" />
+			<Stack StackGrowth="Right">
+				<Box Size="2,parent" Color="46,70,95,128" />
+				<Container Offset="1,0" Size="400,parent">
+					<Label ID="WName" Style="ReportValueText" Color="Faith" String="$WName$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="80,parent">
+					<Label ID="STurn" Style="ReportValueText" Color="Faith" String="$STurn$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="80,parent">
+					<Label ID="ETurn" Style="ReportValueText" Color="Faith" String="$ETurn$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="125,parent">
+					<Label ID="C1Name" Style="ReportValueText" Color="Faith" String="$C1Name$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="105,parent">
+					<Label ID="ULC1" Style="ReportValueText" Color="Faith" String="$ULC1$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="125,parent">
+					<Label ID="C2Name" Style="ReportValueText" Color="Faith" String="$C2Name$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="105,parent">
+					<Label ID="ULC2" Style="ReportValueText" Color="Faith" String="$ULC2$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Container Offset="1,0" Size="80,parent">
+					<Label ID="Dur" Style="ReportValueText" Color="Faith" String="$Dur$" Align="Center" Anchor="C,C" Offset="0,0" />
+				</Container>
+				<Box Offset="1,0" Size="2,parent" Color="46,70,95,128" />
+			</Stack>
+		</Container>
+	</Instance>
+</Context>
