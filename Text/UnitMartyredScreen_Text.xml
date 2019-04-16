@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- RPPB UnitMartyredScreen Text -->
+<!-- Author: RUPESH -->
+<!-- DateCreated: 16/03/2019 1:54:56 PM -->
+<GameData>
+
+	<BaseGameText>
+
+		<Row Tag="RPPB_UMS_UNITS_MARTYRED_SCREEN">
+			<Text>Units Martyred Screen</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_GLOBAL_WAR_SCREEN">
+			<Text>Global War Screen</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_UNITS_MARTYRED">
+			<Text>Units Martyred</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_GLOBAL_WARS">
+			<Text>Global Wars</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_ARMY">
+			<Text>Army</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_NAVY">
+			<Text>Navy</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_AIRFORCE">
+			<Text>Airforce</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_RELIGIOUS">
+			<Text>Religious</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_SPY">
+			<Text>Spy</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_OTHERS">
+			<Text>Others</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_ICON">
+			<Text>Icon</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_TOTAL">
+			<Text>Total</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_MARTYRED">
+			<Text>Martyred</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_CIVILIZATION">
+			<Text>Civilization</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_CURRENTUNITS">
+			<Text>Current Units</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_TOTALWARFOUGHTAGAINST">
+			<Text>Total War Fought Against</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_UNITMARTYREDRECORDS">
+			<Text>Unit Martyred Records</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_UNITMARTYREDLOGS">
+			<Text>Unit Martyred Logs</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_TURN">
+			<Text>Turn</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_NAME">
+			<Text>Name</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_TYPE">
+			<Text>Type</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_LEVEL">
+			<Text>Level</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_OWNERCIV">
+			<Text>Owner Civ</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_KILLERCIV">
+			<Text>Killer Civ</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_CONDITION">
+			<Text>Condition</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_TUKC">
+			<Text>Total Units Killed/Captured</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_TUMC">
+			<Text>Total Units Martyred/Captured</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_BIGGESTKILLER">
+			<Text>Biggest Killer</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_BIGGESTLOSER">
+			<Text>Biggest Loser</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_OVERALL">
+			<Text>Overall</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_BYYOURCIV">
+			<Text>By your civ</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_YOURCIV">
+			<Text>Your Civilization</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_KILLED">
+			<Text>Killed</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_CAPTURED">
+			<Text>Captured</Text>
+		</Row>
+
+
+		<Row Tag="RPPB_UMS_TOTALUNITSKILLEDBY">
+			<Text>Total Units Killed By</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_MAXUNITSKILLEDOF">
+			<Text>Max Units Killed Of</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_TOTALUNITSMARTYREDOF">
+			<Text>Total Units Martyred Of</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_MAXUNITSMARTYREDBY">
+			<Text>Max Units Martyred By</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_MOSTWARSFOUGHTAGAINST">
+			<Text>Most Wars Fought Against</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_MILITARYSTRENGTH">
+			<Text>Military Strength</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_MILITARYBUDGET">
+			<Text>Military Budget</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_ATWAR">
+			<Text>At War</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_ISDEAD">
+			<Text>Is Dead</Text>
+		</Row>
+
+		<!-- GLOBAL WAR SCREEN-->
+
+		<Row Tag="RPPB_UMS_GLOBALWARRECORDS">
+			<Text>Global War Records</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_TOTALCASUALTIESSUFFERED">
+			<Text>Total Casualties Suffered</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_TOTALWARSFOUGHT">
+			<Text>Total Wars Fought</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_LONGESTWARFOUGHT">
+			<Text>Longest War Fought</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_MCINW">
+			<Text>Most Casualties in War</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_GLOBALWARLOGS">
+			<Text>Global War Logs</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_STARTTURN">
+			<Text>Start Turn</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_ENDTURN">
+			<Text>End Turn</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_UNITSLOST">
+			<Text>Units Lost</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_CIV">
+			<Text>Civ</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_WAR">
+			<Text>War</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_TURNS">
+			<Text>Turns</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_UNITS">
+			<Text>Units</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_ONGOING">
+			<Text>Ongoing</Text>
+		</Row>
+
+		<Row Tag="RPPB_UMS_UNKNOWN">
+			<Text>Unknown</Text>
+		</Row>
+
+	</BaseGameText>
+</GameData>
