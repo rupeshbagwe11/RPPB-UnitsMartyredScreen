@@ -11,7 +11,7 @@
 
 	<Instance Name="ECOButtonInstance">
 		<Container ID="ECOScreens" Anchor="L,C" Size="30,30" Offset="2,0">
-			<GridButton ID="ViewECOScreens" Size="29,29" Offset="1,-2" Texture="Controls_ButtonControl_Reports" SliceCorner="12,12" SliceSize="1,1" SliceTextureSize="29,29" StateOffsetIncrement="0,29" ToolTip="RPPB Economics Coming Soon">
+			<GridButton ID="ViewECOScreens" Size="29,29" Offset="1,-2" Texture="Controls_ButtonControl_Reports" SliceCorner="12,12" SliceSize="1,1" SliceTextureSize="29,29" StateOffsetIncrement="0,29" ToolTip="RPPB InfoRecStats Coming Soon">
 				<Image Anchor="C,C" Size="16,16" IconSize="16"    Icon="ICON_CIVILOPEDIA_GOVERNMENTS" />
 			</GridButton>
 		</Container>
