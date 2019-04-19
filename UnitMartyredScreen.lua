@@ -980,7 +980,15 @@ function getGlobalWarRecords()
       if(fobj_War.AI == mnum_LocalPlayerID or fobj_War.DI == mnum_LocalPlayerID)then
         
         lnum_TotalWarsC = lnum_TotalWarsC + 1;
-        lnum_TotalUnitsLostC  = lnum_TotalUnitsLostC + lnum_TempTotCas;
+		
+		local lnum_TempTotCasC:number = 0;
+		if(fobj_War.AI == mnum_LocalPlayerID)then
+			lnum_TempTotCasC = lnum_TempAUL;
+		elseif(fobj_War.DI == mnum_LocalPlayerID)then
+			lnum_TempTotCasC = lnum_TempDUL;
+		end
+
+        lnum_TotalUnitsLostC  = lnum_TotalUnitsLostC + lnum_TempTotCasC;
         
          if(lnum_TempTotCas > lnum_MostCasualtyWarNC) then
             lnum_MostCasualtyWarNC = lnum_TempTotCas;
@@ -1222,7 +1230,6 @@ end
 
 function getCountFromTable(pTable)
 	return #pTable;
---TODO
 end
 
 
@@ -1264,7 +1271,6 @@ function shouldDisplay(pPlayerId , pOwnDisplay)
 	end		
 
 	return false;
---TODO
 end
 
 function getStringGTZero(pTotal)
@@ -1442,7 +1448,8 @@ function InitializeModButtons()
 	button_instance.ViewUMScreens:RegisterCallback(Mouse.eLClick, OpenUMSPanel)
 	button_instance.ViewUMScreens:SetHide(false)
 
-	button_instance_manager1 = InstanceManager:new("ECOButtonInstance", "ECOScreens", toppanel_infostack)
+	local toppanel_infostack1 = ContextPtr:LookUpControl("/InGame/TopPanel/InfoStack")
+	button_instance_manager1 = InstanceManager:new("ECOButtonInstance", "ECOScreens", toppanel_infostack1)
 	local button_instance1 = button_instance_manager1:GetInstance()
 	button_instance1.ViewECOScreens:SetHide(false)
 
