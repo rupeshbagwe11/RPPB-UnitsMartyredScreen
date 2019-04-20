@@ -23,6 +23,7 @@ Should be compatible with all -including UI- mods.
 
 Thank You
 -Gedemon for his extremely helpful Civ VI Objects and functions spreadsheet[forums.civfanatics.com].
+-Gedemon for SaveLoad(Persisting data within saves)[forums.civfanatics.com].
 -Understood UI Mechanism, and working of UI and used some common functions from Better Report Screen by infixo.
 -Top Button Idea was inspired from CIVIGraphs by Jan Michael Vincent.
 -Users of the mod, friends, family, parents and God.
